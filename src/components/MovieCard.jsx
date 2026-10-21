@@ -1,18 +1,22 @@
+import { Link } from "react-router-dom";
 
-function MovieCard({ movie }) {
+function MovieCard({title,posterURL,description,rating }) {
   return (
-    <div className="movie-card">
+    <Link  to={`/movies/${encodeURIComponent(title)}`}>
+    <div className="movie-card" >
       <img
-        src={movie.posterURL}
-        alt={movie.title}
+        src={posterURL}
+        alt={`${title} poster`}
       />
 
       <div className="movie-info">
-        <h2>{movie.title}</h2>
-        <p>{movie.description}</p>
-        <p> {movie.rating}/10</p>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <p> {rating}/10</p>
+        
       </div>
     </div>
+    </Link>
   );
 }
 
